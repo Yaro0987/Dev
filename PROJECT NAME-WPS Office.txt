@@ -1,0 +1,1210 @@
+﻿PROJECT NAME:
+
+Dev - A Secure, AI-powered Design Marketplace Platform
+
+DESCRIPTION:
+
+Dev is a fully-featured web portal for buying and selling digital designs (graphics and
+
+website templates/scripts). The system is built for a secure, responsive, and
+
+customizable user and admin experience. It supports multilingual capability, real-time
+
+admin control with AJAX, powerful admin dashboard, Google sign-in, payment
+
+integration, and AI features for design assistance.
+
+CORE STACK:
+
+- Frontend: HTML, Tailwind CSS (with Dark/Light Themes), JS (AJAX)
+
+- Backend: PHP (PDO), MySQL
+
+- Email: PHPMailer
+
+- Config: .env, .htaccess
+
+- Hosting: Localhost (XAMPP recommended for development)
+
+- External APIs: Google Auth, Payment Gateways (PayPal, Stripe, Flutterwave,
+
+Paystack), AI API (Optional)
+
+STRUCTURE OVERVIEW:
+
+/admin/... # Admin Panel sections for Dashboard, Account, Pages, Email, Config,
+
+SEO, Users, Payments, etc.
+
+/users/... # User Dashboard, Login, Signup, Ticketing
+
+/pages/... # Public-facing pages (home, terms, contact, works)
+
+/templates/... # Multiple frontend themes
+
+/assets/... # Static resources (CSS, JS, images)
+
+/uploads/... # Uploaded works
+
+.env, .htaccess, router.php, install.php
+
+FRONTEND FEATURES:
+
+- Homepage with sections editable from Admin
+
+- Graphics & Website works with like/purchase system
+
+Dynamic search bar on all needed pages 
+ Responsive design with 3-4 themes
+
+- Language selector and theme switch
+
+USER WORKFLOW:
+
+1. Visitor browses works
+
+2. Registers via email or Google
+
+3. Adds work to cart and makes payment
+
+4. Accesses purchased items from Dashboard
+
+5. Submits tickets if needed
+
+ADMIN WORKFLOW:
+
+1. Logs into AJAX dashboard
+
+2. Manages users, works, categories, SEO, pages
+
+3. Adds/edit frontend themes
+
+4. Configures AI key, email, payments
+
+5. Views analytics and ticket logs
+
+SECURITY:
+
+- CSRF token protection
+
+- SQL Injection-safe via PDO
+
+- Session timeout & validation
+
+- Passwords hashed
+
+- .env for sensitive configs
+
+AI FEATURES:
+
+- Admin can add AI key
+
+- Can auto-generate tags, description, even previews
+
+- Optional future assistant tools for buyers
+
+RECOMMENDATION:
+
+- Consider MVC structure like Laravel or CodeIgniter in future
+
+- All forms validated on both client/server sides
+
+- Daily cron job to auto-email admin summary
+
+
+Hope user have a login or sign up section, and user can sign in/up using Google
+
+Add where to manage Google sign up in configuration section in the Admin and add user in the side van with drop down to manage the each user( Admin can do anything to the user "absolutely anything") and also add user can edit his informations
+
+In the user dashboard - user can also submit tickets also add logout and reset password in login.
+
+This site has to be very very strong/protective
+Very secured
+Don't forget the quarry and DB
+
+We are going to run it on local host
+In the main project folder add install.php to automatically configure/ check requirements and install database
+
+In the website and graphics page their will be categories
+Website categories (scripts, worldpress, templates, etc (yo suggest))
+Graphic categories (part, wedding, etc (you suggeste))
+Also add the categories actions in admin
+
+Before we Re-organize the structure again, what do you think is missing
+
+
+
+Your plan is already very comprehensive and well-thought-out. Here's a checklist of what you're already covering, followed by my expert suggestions on what else to include for a fully professional and secure final-year project portal system:
+
+
+---
+
+✅ Already Included (from your plan)
+
+🔐 Security & Access Control
+
+Secure admin/user system
+
+Admin has full control over users
+
+Password reset system
+
+Google sign-in
+
+.env support for sensitive config
+
+.htaccess for URL routing and protection
+
+
+🧠 Smart Architecture
+
+AJAX for all admin actions
+
+Clean URL routing (no .php)
+
+Modular and scalable admin & user pages
+
+Install script (install.php) for automatic setup
+
+Centralized asset management (styles, scripts, images)
+
+Categories for graphic/website works
+
+SEO and social sharing settings
+
+
+📋 Admin Features
+
+Dashboard (live data, stats)
+
+Pages (edit/reorder all frontend sections)
+
+Accounts (admin profile)
+
+Templates (switch frontend themes)
+
+Config (Google login, email sending, payments etc.)
+
+Email settings
+
+SEO
+
+Version
+
+Logout
+
+Payments (manage price, purchase toggle)
+
+Users (view, ban, edit, delete everything)
+
+
+👥 User Features
+
+Register/Login (normal + Google)
+
+View & like works
+
+Add to cart / purchase (if enabled)
+
+View purchased items
+
+Submit tickets
+
+Edit profile
+
+Logout & password reset
+
+
+🧾 Website Structure
+
+Home with dynamic sections (navbar, body, works, contact, etc.)
+
+Graphic works & Website works (AJAX previews, watermarking, categorization)
+
+Terms of service
+
+Full CMS-style page control from Admin
+
+
+
+---
+
+✅ Files You Mentioned for Inclusion
+
+PHPMailer/
+
+.env
+
+.htaccess
+
+install.php
+
+router.php (for clean URLs and routing logic)
+
+config/ (config loader, database, env handler)
+
+
+
+---
+
+🔍 What’s Missing or Recommended to Add
+
+1. Database Structure & Migrations
+
+Suggest: database/migrations/ folder to define all DB schemas in versioned SQL files or PHP migrations.
+
+Ensure proper indexes, foreign keys, and constraints.
+
+Use install.php to auto-create database from these.
+
+
+2. CSRF & XSS Protection
+
+Add CSRF token generation/validation in all forms.
+
+Escape all inputs & outputs (especially user inputs/comments).
+
+
+3. Rate Limiting / Spam Protection
+
+Prevent abuse on signup, comments, contact, etc. (via session/IP based rate limits).
+
+Google reCAPTCHA support (toggle in Configuration).
+
+
+4. Logs & Monitoring
+
+Suggest: logs/ directory
+
+Error logs, login attempts, payments, user actions, etc.
+
+
+5. API Layer (Optional but Future-Proof)
+
+Prepare an api/ directory (for REST or future mobile app support).
+
+Token-based user validation.
+
+
+6. Backup Tools
+
+Suggest an option to backup:
+
+DB (backup/db.sql)
+
+User-uploaded files (graphic/website assets)
+
+
+
+7. Theme/Template Manager
+
+You mentioned switching templates. Ensure template/ folder with multiple frontend themes, dynamically applied from Admin.
+
+
+8. Notifications (Optional but Impressive)
+
+Add local notification system:
+
+Admin receives alert for new ticket, purchase, new work uploaded.
+
+User sees notification after purchase, message response, etc.
+
+
+
+9. Multi-language Support (Bonus Point)
+
+Add lang/ directory for i18n JSON files.
+
+Admin can toggle languages (French, English, etc.)
+
+
+10. License Agreement / Terms Enforcer
+
+First-time user login should prompt them to agree to terms (stored in DB).
+
+
+
+Full project description
+
+Clear instructions and expectations
+
+File/folder structure
+
+Functionality overview
+
+Admin & User features
+
+Security and performance expectations
+
+Technologies to use
+
+Additional AI recommendations
+
+
+
+---
+
+✅ PROJECT PROMPT FOR AI DEVELOPER
+
+---
+
+🧠 Project Name:
+
+Dev – A Multilingual, AI-powered Design Marketplace
+
+
+---
+
+📝 Project Description:
+
+"Dev" is a secure, full-featured portal for buying and selling all kinds of digital designs, including graphics and website designs, with integrated AI assistance, multiple front-end themes, and full admin control. The project should be developed using PHP, MySQL, TailwindCSS, and JavaScript (AJAX). It will run on localhost with an install.php for setup and support clean URLs (no .php extensions).
+
+
+---
+
+🧩 Key Features
+
+🔒 General Requirements:
+
+Full PHP security (input sanitization, session security, password hashing)
+
+.env support (for credentials and configurations)
+
+.htaccess for clean URLs
+
+AJAX everywhere in Admin panel for fast UX
+
+Responsive TailwindCSS (Light & Dark Mode)
+
+Built-in multilingual support (English by default; admin can add more)
+
+PHPMailer integration for email notifications
+
+Full database included with relationships
+
+Optional AI API key input in Admin for AI-assisted features
+
+
+
+---
+
+📁 Project Directory Structure
+
+dev/
+│
+├── admin/
+│   ├── dashboard/
+│   ├── account/
+│   ├── template/
+│   ├── pages/
+│   ├── users/
+│   ├── payment/
+│   ├── configuration/
+│   ├── seo/
+│   ├── email_settings/
+│   ├── tickets/
+│   ├── version/
+│   ├── logout/
+│   └── assets/
+│       ├── css/
+│       ├── js/
+│       └── images/
+│
+├── user/
+│   ├── dashboard/
+│   ├── cart/
+│   ├── pending/
+│   ├── history/
+│   ├── purchased/
+│   ├── tickets/
+│   ├── profile/
+│   └── logout/
+│
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│
+├── themes/
+│   ├── theme1/
+│   ├── theme2/
+│   ├── theme3/
+│   └── theme4/
+│
+├── includes/
+│   ├── router.php
+│   ├── db.php
+│   ├── mailer.php
+│   ├── helpers.php
+│   └── auth.php
+│
+├── uploads/
+│   ├── graphics/
+│   ├── websites/
+│   └── thumbnails/
+│
+├── language/
+│   └── en.json
+│
+├── install.php
+├── index.php
+├── .htaccess
+├── .env
+└── README.md
+
+
+---
+
+👨‍💻 ADMIN PANEL (all AJAX powered)
+
+📊 Dashboard:
+
+Total users
+
+Total purchases
+
+Sales analytics
+
+Recently added works
+
+Recent tickets
+
+Top-liked works
+
+
+👤 Account:
+
+Change password
+
+Profile photo
+
+Admin info (editable)
+
+
+🎨 Template:
+
+Switch between different frontend themes
+
+Preview available themes
+
+
+📄 Pages:
+
+Home
+
+Terms
+
+Graphic Works
+
+Website Works
+
+FAQ
+
+Contact
+
+All text & content editable (WYSIWYG)
+
+Pages can be reordered via drag-and-drop
+
+
+🧑‍💼 Users:
+
+Full user list
+
+Admin can:
+
+Suspend
+
+Reset password
+
+View all user activity
+
+Delete user
+
+
+
+💳 Payment:
+
+Enable/disable gateways (PayPal, Stripe, Flutterwave, Paystack, etc.)
+
+Auto payment management
+
+Manual payment record support
+
+
+⚙️ Configuration:
+
+Enable/disable email sending
+
+Enable/disable payment
+
+Google Sign-In credentials input
+
+AI API key input
+
+
+📧 Email Settings:
+
+SMTP setup (host, port, user, pass)
+
+Test connection option
+
+
+📈 SEO:
+
+Meta title/description
+
+Favicon
+
+Watermark image (used in previews)
+
+
+🛠 Version:
+
+Site version
+
+PHP version check
+
+
+
+---
+
+🧑‍🎨 USER PANEL
+
+🏠 Dashboard:
+
+Overview of purchases
+
+Cart items
+
+Liked works
+
+Notifications
+
+
+🛒 Cart:
+
+Items saved for purchase
+
+Total calculation
+
+Checkout flow
+
+
+💰 Payment History:
+
+Paid items
+
+Payment date, amount, gateway
+
+
+📦 Purchased Works:
+
+View/download purchased items
+
+
+📨 Tickets:
+
+Submit/view replies
+
+Close/resume ticket
+
+
+👤 Profile:
+
+Edit basic info
+
+Change password
+
+
+🔒 Login/Signup:
+
+Email + password
+
+Google Sign-In
+
+Password reset
+
+Fully secure with email confirmation
+
+
+
+---
+
+🎨 FRONTEND PAGES (fully editable in admin)
+
+Home
+
+Dynamic sections (editable)
+
+Stats, Testimonials, FAQs
+
+
+Works
+
+Graphics: filter by category, AJAX preview
+
+Websites: links with info
+
+
+Terms
+
+Contact (contact form + comment form)
+
+Watermarked previews with logo from SEO settings
+
+Like and Purchase buttons
+
+
+
+---
+
+📁 WORKS (ADMIN UPLOAD)
+
+Upload graphics/web design
+
+Add category
+
+Set purchasable: ON/OFF
+
+Price field
+
+Description
+
+Automatically watermarked
+
+
+
+---
+
+📂 CATEGORIES
+
+Admin manages categories:
+
+Graphic (e.g. Logo, Banner, Wedding)
+
+Website (e.g. Templates, CMS, Scripts)
+
+
+
+
+---
+
+🔐 SECURITY
+
+CSRF tokens for forms
+
+Session hijack prevention
+
+SQL injection protection (PDO prepared statements)
+
+Password hashing (bcrypt)
+
+File upload validation (image checks, mime types)
+
+Secure .env for DB/API config
+
+
+
+---
+
+🌍 MULTILINGUAL
+
+English by default
+
+Admin can add new language JSON files
+
+Language selector on frontend
+
+
+
+---
+
+🔧 INSTALLATION
+
+install.php checks:
+
+PHP version
+
+Folder permissions
+
+Creates DB & tables
+
+Sets admin credentials
+
+Saves .env
+
+
+
+
+---
+
+📦 REQUIRED LIBRARIES
+
+PHPMailer
+
+Google Sign-In API
+
+TailwindCSS
+
+FontAwesome or Lucide Icons
+
+Framer Motion (optional for animation)
+
+AJAX / Vanilla JS
+
+MySQL / PDO
+
+
+
+---
+
+💡 RECOMMENDATIONS TO THE AI
+
+Keep all logic modular and reusable.
+
+Use AJAX for admin dashboard actions.
+
+Pages should load fast — use caching if possible.
+
+Stick to clean URL routing: example.com/page, not .php.
+
+Comment code properly.
+
+Ensure every text content on the frontend is editable from the Admin Pages section.
+
+Follow best practices for PHP and MySQL security.
+
+
+
+---
+
+✅ Deliverables:
+
+Full working project in ZIP
+
+Localhost ready (xampp/laragon)
+
+All credentials stored in .env
+
+Admin login: created during install
+
+README with usage instructions
+
+Sample test data (users, works, categories)
+
+
+
+
+dev/
+│
+├── .env
+├── .htaccess
+├── install.php
+├── router.php
+├── index.php
+├── README.md
+│
+├── /config/
+│   ├── database.php
+│   ├── app.php
+│   ├── mail.php
+│   ├── ai.php
+│   └── languages.php
+│
+├── /core/
+│   ├── Controller.php
+│   ├── Model.php
+│   ├── Route.php
+│   └── Auth.php
+│
+├── /public/
+│   ├── /assets/
+│   │   ├── /css/
+│   │   ├── /js/
+│   │   ├── /images/
+│   │   └── /themes/
+│   │       ├── light/
+│   │       ├── dark/
+│   │       └── minimal/
+│   └── uploads/
+│
+├── /admin/
+│   ├── dashboard/
+│   ├── account/
+│   ├── pages/
+│   ├── users/
+│   ├── config/
+│   ├── payments/
+│   ├── seo/
+│   ├── templates/
+│   ├── version/
+│   └── logout.php
+│
+├── /user/
+│   ├── dashboard/
+│   ├── cart/
+│   ├── purchases/
+│   ├── tickets/
+│   ├── profile/
+│   ├── auth/
+│   │   ├── login.php
+│   │   ├── register.php
+│   │   ├── google_auth.php
+│   │   ├── logout.php
+│   │   └── reset_password.php
+│
+├── /pages/
+│   ├── home.php
+│   ├── graphics.php
+│   ├── websites.php
+│   ├── terms.php
+│   └── contact.php
+│
+├── /api/
+│   ├── payment_webhook.php
+│   ├── ticket_handler.php
+│   └── like_handler.php
+│
+├── /lang/
+│   ├── en.json
+│   └── (More to be added via admin)
+│
+└── /vendor/
+    └── (PHPMailer, etc.)
+
+
+
+Great update! Here's how these features will integrate:
+
+
+---
+
+🌐 Language Management (Admin Controlled)
+
+Admin > Configuration > Languages
+
+Add/Edit/Delete languages
+
+Upload translation files (e.g., JSON or PHP arrays)
+
+Set default language
+
+
+Frontend detects language and loads from:
+
+languages/en.json, languages/fr.json, etc.
+
+
+Language switcher in navbar (optional)
+
+
+
+---
+
+💳 Payment Gateway Management
+
+Admin > Payment Gateway
+
+Pre-installed major gateways:
+
+PayPal
+
+Stripe
+
+Flutterwave
+
+Paystack
+
+Coinbase Commerce
+
+Binance Pay
+
+Wise
+
+Skrill
+
+Bank Transfer (manual)
+
+
+Each gateway includes:
+
+On/Off toggle
+
+API credentials (editable)
+
+Visibility per user country (optional advanced filter)
+
+
+
+
+
+---
+
+✅  want:
+A language fallback system
+Auto-translate suggestions
+Currency switching base no users locations payment gateways
+
+
+Absolutely! Here's your complete full-stack project structure, combining everything you've requested — a secure, modular, AJAX-based, SEO-optimized portal system with admin and user systems, dynamic content control, clean URLs, and real-time actions.
+
+
+---
+
+✅ 📁 Final Full Project Structure
+
+/your-project-root/
+│
+├── .env                          # Sensitive environment variables (DB, Email, etc.)
+├── .htaccess                    # URL rewriting (clean URLs, security headers)
+├── install.php                  # Installer: Checks requirements, creates DB
+├── router.php                   # Handles clean URL routing (no .php)
+├── index.php                    # Entrypoint - includes router
+│
+├── config/
+│   ├── config.php               # Loads .env and global config
+│   ├── db.php                   # Secure PDO connection
+│   ├── functions.php            # Reusable helper functions
+│   ├── csrf.php                 # CSRF token generation/validation
+│   └── auth.php                 # Auth checks and user session management
+│
+├── public/
+│   ├── assets/
+│   │   ├── css/
+│   │   │   └── style.css        # Light/Dark theme with TailwindCSS
+│   │   ├── js/
+│   │   │   └── main.js          # All AJAX and interactivity
+│   │   ├── images/              # Centralized image storage
+│   │   └── logos/               # Logo used for watermarks, etc.
+│   └── uploads/                 # Uploaded works by admin (secured with .htaccess)
+│
+├── api/
+│   ├── like.php                 # AJAX: like a work
+│   ├── purchase.php             # AJAX: purchase handler
+│   ├── contact.php              # AJAX: contact form
+│   ├── comment.php              # AJAX: comments
+│   ├── ticket.php               # AJAX: submit ticket
+│   └── page_data.php            # Dynamic page content loader
+│
+├── logs/
+│   ├── error.log                # PHP error logs
+│   ├── auth.log                 # Login/logout attempts
+│   └── payment.log              # Payment transactions
+│
+├── phpmailer/                   # PHPMailer library
+│   └── (All PHPMailer files here)
+│
+├── database/
+│   └── migrations/
+│       ├── create_users.sql
+│       ├── create_works.sql
+│       ├── create_payments.sql
+│       ├── create_pages.sql
+│       ├── create_tickets.sql
+│       └── ...
+│
+├── admin/
+│   ├── dashboard/               # Dashboard: charts, stats, visitors
+│   ├── account/                 # Admin profile settings
+│   ├── template/                # Select frontend design templates
+│   ├── page/                    # Manage pages (home, terms, etc.)
+│   ├── email-setting/           # Configure email actions
+│   ├── configuration/           # Toggles: Google, Email, Payments, reCAPTCHA
+│   ├── seo/                     # Metadata, watermark logo, etc.
+│   ├── version/                 # Site version and description
+│   ├── logout/                  # Logout endpoint
+│   ├── users/                   # View, ban, edit users
+│   ├── payments/                # Manage transactions, set prices
+│   ├── works/
+│   │   ├── graphics/            # Manage graphic uploads
+│   │   └── websites/            # Manage website uploads
+│   └── categories/
+│       ├── graphics.php         # Manage graphic categories
+│       └── websites.php         # Manage website categories
+│
+├── users/
+│   ├── login.php                # Login form (email + Google)
+│   ├── register.php             # Sign up
+│   ├── reset.php                # Password reset
+│   ├── dashboard/
+│   │   ├── index.php            # Main dashboard
+│   │   ├── payments.php         # Pending + history
+│   │   ├── works.php            # Purchased works
+│   │   ├── cart.php             # Works in cart
+│   │   ├── tickets.php          # Submit/view tickets
+│   │   └── settings.php         # Edit profile
+│   └── logout.php              # Logout
+│
+├── pages/
+│   ├── home.php                 # Home page with dynamic sections
+│   ├── graphic.php              # All graphic works (AJAX previews)
+│   ├── website.php              # All websites (AJAX links/previews)
+│   ├── terms.php                # Terms of service
+│   └── preview/                 # AJAX modal previews
+│       ├── graphic-preview.php
+│       └── website-preview.php
+│
+└── lang/
+    ├── en.json                  # English language strings
+    └── fr.json                  # French translation (optional for bonus)
+
+
+---
+
+✅ Additional Notes
+
+🛡️ Security
+
+.htaccess disables script execution in /uploads, restricts access to hidden files.
+
+CSRF protection via hidden tokens.
+
+Login system protected from brute force with logging.
+
+Only admin can toggle purchase, delete, or update works.
+
+Input sanitization and output escaping is used globally.
+
+
+💡 Clean URLs
+
+All routes handled via router.php
+
+/dashboard → admin/dashboard/index.php
+
+/graphic → pages/graphic.php
+
+/user/login → users/login.php
+
+
+
+🔁 AJAX & Interactivity
+
+All admin actions, purchases, likes, contact forms, comments, and settings are handled via AJAX calls to api/.
+
+
+🌍 Dynamic Content
+
+Admin can edit ALL user-visible content from the Pages section.
+
+Sections can be dragged to reorder.
+
+All works are shown from database with real-time like/purchase options.
+
+
+
+---
+
+✅  generate:
+1. The router.php file logic?
+2. The install.php database auto-setup
+3. Example index.php, .env, or .htaccess?
+4. The DB structure (SQL schema)?
+5. Starter AJAX functions for like, comment, purchase?
+
+Structure again 
+/your-project-root/
+│
+├── .env                          # Sensitive environment variables (DB, Email, etc.)
+├── .htaccess                    # URL rewriting (clean URLs, security headers)
+├── install.php                  # Installer: Checks requirements, creates DB
+├── router.php                   # Handles clean URL routing (no .php)
+├── index.php                    # Entrypoint - includes router
+│
+├── config/
+│   ├── config.php               # Loads .env and global config
+│   ├── db.php                   # Secure PDO connection
+│   ├── functions.php            # Reusable helper functions
+│   ├── csrf.php                 # CSRF token generation/validation
+│   └── auth.php                 # Auth checks and user session management
+│
+├── public/
+│   ├── assets/
+│   │   ├── css/
+│   │   │   └── style.css        # Light/Dark theme with TailwindCSS
+│   │   ├── js/
+│   │   │   └── main.js          # All AJAX and interactivity
+│   │   ├── images/              # Centralized image storage
+│   │   └── logos/               # Logo used for watermarks, etc.
+│   └── uploads/                 # Uploaded works by admin (secured with .htaccess)
+│
+├── api/
+│   ├── like.php                 # AJAX: like a work
+│   ├── purchase.php             # AJAX: purchase handler
+│   ├── contact.php              # AJAX: contact form
+│   ├── comment.php              # AJAX: comments
+│   ├── ticket.php               # AJAX: submit ticket
+│   └── page_data.php            # Dynamic page content loader
+│
+├── logs/
+│   ├── error.log                # PHP error logs
+│   ├── auth.log                 # Login/logout attempts
+│   └── payment.log              # Payment transactions
+│
+├── phpmailer/                   # PHPMailer library
+│   └── (All PHPMailer files here)
+│
+├── database/
+│   └── migrations/
+│       ├── create_users.sql
+│       ├── create_works.sql
+│       ├── create_payments.sql
+│       ├── create_pages.sql
+│       ├── create_tickets.sql
+│       └── ...
+│
+├── admin/
+│   ├── dashboard/               # Dashboard: charts, stats, visitors
+│   ├── account/                 # Admin profile settings
+│   ├── template/                # Select frontend design templates
+│   ├── page/                    # Manage pages (home, terms, etc.)
+│   ├── email-setting/           # Configure email actions
+│   ├── configuration/           # Toggles: Google, Email, Payments, reCAPTCHA
+│   ├── seo/                     # Metadata, watermark logo, etc.
+│   ├── version/                 # Site version and description
+│   ├── logout/                  # Logout endpoint
+│   ├── users/                   # View, ban, edit users
+│   ├── payments/                # Manage transactions, set prices
+│   ├── works/
+│   │   ├── graphics/            # Manage graphic uploads
+│   │   └── websites/            # Manage website uploads
+│   └── categories/
+│       ├── graphics.php         # Manage graphic categories
+│       └── websites.php         # Manage website categories
+│
+├── users/
+│   ├── login.php                # Login form (email + Google)
+│   ├── register.php             # Sign up
+│   ├── reset.php                # Password reset
+│   ├── dashboard/
+│   │   ├── index.php            # Main dashboard
+│   │   ├── payments.php         # Pending + history
+│   │   ├── works.php            # Purchased works
+│   │   ├── cart.php             # Works in cart
+│   │   ├── tickets.php          # Submit/view tickets
+│   │   └── settings.php         # Edit profile
+│   └── logout.php              # Logout
+│
+├── pages/
+│   ├── home.php                 # Home page with dynamic sections
+│   ├── graphic.php              # All graphic works (AJAX previews)
+│   ├── website.php              # All websites (AJAX links/previews)
+│   ├── terms.php                # Terms of service
+│   └── preview/                 # AJAX modal previews
+│       ├── graphic-preview.php
+│       └── website-preview.php
+│
+└── lang/
+    ├── en.json                  # English language strings
+    └── fr.json                  # French translation (optional for bonus)
+
+
+
+
+✅ Conclusion
+1. ✅ Lock in all sections you want (done).
+2. 📁 Let's now generate the final full folder and file structure, combining frontend, backend, routing, and support files.
+3. 🧱 Then we’ll build the install.php, router.php, and AJAX foundations.
+4. 🛡️ Secure it all with CSRF, token handling, and good PHP practice.
+
